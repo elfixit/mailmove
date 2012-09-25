@@ -14,4 +14,4 @@ dependencies
 
 installation
 ------------
-[https://github.com/elfixit/mailmove/wiki/Installation](Installation)
+[Installation](https://github.com/elfixit/mailmove/wiki/Installation)
