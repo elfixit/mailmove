@@ -8,6 +8,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires=[
     'distribute',
+    'unittest2',
     'Flask>=0.8',
     'celery>=3.0',
     'Flask-MimeRender',
