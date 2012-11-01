@@ -1,6 +1,11 @@
-from pyramid.i18n import TranslationStringFactory
+from flask import render_template, abort
+from mailmove import bp_mailmove, bp_mailmove_pages
 
-_ = TranslationStringFactory('mailmove')
 
-def my_view(request):
-    return {'project':'mailmove'}
+@bp_mailmove_pages.route('/', defaults={'page': 'index'})
+@bp_mailmove_pages.route('/<page>')
+def page(page):
+    try:
+        return render_template('pages/{}.html'.format(page), name=page)
+    except:
+        abort(404)

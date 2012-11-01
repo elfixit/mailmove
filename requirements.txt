@@ -1,7 +1,1 @@
-Jinja2==2.6
-celery==3.0.10
-distribute==0.6.24
--e git://github.com/nicolas33/offlineimap.git@464342e1dd416764598bd4e02b767310dac16371#egg=offlineimap-dev
-pyramid==1.4a1
-pyramid-celery==1.2.1
-pyramid-jinja2==1.4.1
+https://github.com/OfflineIMAP/offlineimap/tarball/master

@@ -1,23 +1,19 @@
-from pyramid.config import Configurator
-from pyramid_jinja2 import renderer_factory
-from mailmove.models import get_root
+from flask import Blueprint, Flask
 
-def main(global_config, **settings):
-    """ This function returns a WSGI application.
-    
-    It is usually called by the PasteDeploy framework during 
-    ``paster serve``.
-    """
-    settings = dict(settings)
-    settings.setdefault('jinja2.i18n.domain', 'mailmove')
+bp_mailmove = Blueprint('mailmove', __name__, template_folder='templates', static_folder='static')
+bp_mailmove_pages = Blueprint('mailmove_pages', __name__+".pages", template_folder='templates', static_folder='static')
 
-    config = Configurator(root_factory=get_root, settings=settings)
-    config.add_translation_dirs('locale/')
-    config.include('pyramid_jinja2')
+import mailmove.views
 
-    config.add_static_view('static', 'static')
-    config.add_view('mailmove.views.my_view',
-                    context='mailmove.models.MyModel', 
-                    renderer="mytemplate.jinja2")
+# this flask app is just for debug and demonstration
+# you can simple run it with python -m mailmove
+app = Flask(__name__)
+app.register_blueprint(bp_mailmove_pages)
+app.register_blueprint(bp_mailmove, url_prefix="/mailmove")
 
-    return config.make_wsgi_app()
+def run():
+    app.run(debug=True)
+
+if __name__ == "__main__":
+    run()
+
