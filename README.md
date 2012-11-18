@@ -11,8 +11,12 @@ dependencies
 
 * flask
 * flask-testing
+* flask-rest
 * celery
+* celery-with-mongodb
 * offlineimap
+* mongoengine
+
 
 installation
 ------------

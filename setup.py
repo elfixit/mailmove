@@ -8,14 +8,23 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires=[
     'distribute',
-    'unittest2',
     'Flask>=0.8',
     'celery>=3.0',
+    'celery-with-mongodb',
     'Flask-MimeRender',
     'Flask-Testing',
+    'flask-mongoengine',
+    'flask-bcrypt',
+    'Flask-Script',
     #'Flask-SeaSurf',
     'pysqlite',
+    'mongoengine'
     #"https://github.com/OfflineIMAP/offlineimap/tarball/master==dev"
+]
+
+tests_requires = requires + [
+    'unittest2',
+    'nose'
 ]
 
 setup(name='mailmove',
@@ -36,6 +45,6 @@ setup(name='mailmove',
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,
-      tests_require=requires,
-      test_suite="mailmove.tests",
+      tests_require=tests_requires,
+      test_suite="nose.collector",
 )
