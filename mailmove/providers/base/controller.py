@@ -1,4 +1,5 @@
 
 class BaseProviderController(object):
 
-    def __init__(self, data,
+    def __init__(self, data):
+        pass
