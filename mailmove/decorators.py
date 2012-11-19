@@ -7,7 +7,6 @@ def job_required(f):
     """
         Checks if the job by kwarg job_uuid is available and if the users password for the job is correct
     """
-
     @wraps(f)
     def decorator(* args, **kwargs):
         job_uuid = kwargs.get('job_uuid', None)
@@ -16,7 +15,7 @@ def job_required(f):
         job = Job.objects.get(_id=job_uuid)
         if job:
             if request.method == 'post':
-                job_pass = request.args.get('')
+                job_pass = request.args.get('pass')
         else:
             abort(404)
 

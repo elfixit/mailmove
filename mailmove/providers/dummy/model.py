@@ -1,3 +1,4 @@
-from mailmove.topics.base.model import BaseTopic
+from mailmove.provider.base.model import BaseProvider
 
-class DummyTopic(BaseTopic)
+class DummyTopic(BaseProvider):
+    pass

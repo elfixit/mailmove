@@ -29,7 +29,7 @@ DUMMY_PROVIDER = (
 )
 
 MAIL_PROVIDER = (
-    'mailmove.topics.mail.providers.IMAP',
+    'mailmove.providers.imap.IMAP',
     #'mailmove.topics.mail.providers.GMAIL',
 )
 

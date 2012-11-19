@@ -22,3 +22,12 @@ class BaseController(object):
     def __init__(self, topic_uuid):
         self.model = BaseTopic.objects.get(_id=topic_uuid)
 
+    def test(self):
+        pass
+
+    def run(self):
+        pass
+
+    def finish(self):
+        pass
+

@@ -23,7 +23,9 @@ def singleton(cls):
 
 @singleton
 class MailMove(object):
-
+    """
+        this class gets removed. no fucking singleton..
+    """
     def __init__(self):
         self.flask = Flask(__name__)
         self.config = Config(os.path.dirname(__file__), {})
@@ -33,13 +35,13 @@ class MailMove(object):
         self.flask.config.from_object(self.config)
         self.blueprint = Blueprint('mailmove', __name__)
         self.pages_blueprint = page_views.mod
-        self.flask.register_blueprint(self.pages_blueprint)
         self.flask.register_blueprint(self.blueprint, url_prefix="/mailmove")
+        self.flask.register_blueprint(self.pages_blueprint)
         self.celery = Celery()
+        self.celery.config_from_object(self.config)
         self.db = MongoEngine(self)
         self.bcrypt = Bcrypt(self)
         self.manager = Manager(self.flask)
-
         self.setup()
 
     def setup(self):
