@@ -1,5 +1,8 @@
-from mailmove.app import MailMove
+from mailmove import app, mailmove
+from flask.ext.script import Manager
+
+manager = Manager(app)
 
 if __name__ == '__main__':
-    mm = MailMove()
-    mm.manager.run()
+    mailmove.setup_from_settings()
+    manager.run()

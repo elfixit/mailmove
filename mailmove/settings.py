@@ -18,22 +18,8 @@ CELERY_MONGODB_BACKEND_SETTINGS = {
     "taskmeta_collection": "taskmeta"
 }
 
-#mailmove
-TOPICS = (
-    'mailmove.topics.mail.MailTopic',
-    'mailmove.topics.dummy.DummyTopic',
+PROVIDERS = (
+    'mailmove.providers.dummy',
+    'mailmove.providers.imap',
+    #'mailmove.providers.gmail'
 )
-
-DUMMY_PROVIDER = (
-    'mailmove.provider.dummy'
-)
-
-MAIL_PROVIDER = (
-    'mailmove.providers.imap.IMAP',
-    #'mailmove.topics.mail.providers.GMAIL',
-)
-
-
-#ADDRESS_PROVIDER = (
-#    'mailmove.topics.address.providers.CardDav',
-#)

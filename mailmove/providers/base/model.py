@@ -1,1 +1,5 @@
-__author__ = 'oups'
+from mailmove.models import Provider
+
+class BaseProvider(Provider):
+    pass
+

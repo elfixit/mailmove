@@ -1,9 +1,8 @@
-from mailmove.app import MailMove
+from mailmove import db
 
-mm = MailMove()
-db = mm.db
-
-class Provider(db.EmbeddedDocument):
+class Provider(db.Document):
+    topic = db.ReferenceField('Topic')
+    credential = db.StringField()
     delete_after = db.BooleanField()
 
     meta = {
@@ -12,7 +11,7 @@ class Provider(db.EmbeddedDocument):
 
 class Topic(db.Document):
     job = db.ReferenceField('Job')
-    providers = db.ListField(db.EmbeddedDocumentField(Provider))
+    providers = db.ListField(db.ReferenceField(Provider))
 
     meta = {
         'allow_inheritance': True
@@ -22,9 +21,9 @@ class Job(db.Document):
     tasks = db.ListField(db.ReferenceField(Topic))
     password = db.StringField()
     state = db.IntField()
-    credentials = db.StringField()
+    credentials = db.ListField(db.StringField())
 
-    def get_crediential(self, name):
+    def get_credentials(self, name):
         pass
 
 #from mailmove.controller import MailMove

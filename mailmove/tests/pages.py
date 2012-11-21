@@ -1,11 +1,9 @@
 from flask.ext.testing import TestCase
-from mailmove.app import MailMove
+from mailmove import app
 
 class PageTests(TestCase):
 
     def create_app(self):
-        mm = MailMove()
-        app = mm.make_app()
         app.config['TESTING'] = True
         return app
 

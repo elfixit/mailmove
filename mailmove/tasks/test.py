@@ -1,6 +1,5 @@
-from mailmove.app import MailMove
-
-celery = MailMove().celery
+from __future__ import absolute_import
+from mailmove import celery, mailmove
 
 @celery.task
 def test_topic(job_uuid, topic_uuid):
