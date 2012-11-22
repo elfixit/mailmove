@@ -23,3 +23,7 @@ PROVIDERS = (
     'mailmove.providers.imap',
     #'mailmove.providers.gmail'
 )
+
+ADD_BLUEPRINTS = (
+    ('/', 'mailmove.pages.views.mod')
+)
