@@ -9,7 +9,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 requires=[
     'distribute',
     'Flask>=0.8',
-    'celery>=3.0',
+    #'celery>=3.0',
     'celery-with-mongodb',
     'Flask-MimeRender',
     'Flask-Testing',
