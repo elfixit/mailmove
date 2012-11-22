@@ -4,7 +4,7 @@ mailmove
 ~~~~~~~~
 
 """
-
+from __future__ import absolute_import
 from werkzeug import import_string, cached_property
 
 class LazyView(object):

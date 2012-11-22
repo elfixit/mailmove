@@ -1,5 +1,9 @@
 from mailmove.models import Provider
 
 class BaseProvider(Provider):
-    pass
+    __controller = None
+
+    @classmethod
+    def set_controller(cls, controller):
+        cls.__controller = controller
 

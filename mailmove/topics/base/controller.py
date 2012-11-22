@@ -16,18 +16,27 @@ class BaseController(object):
         register_views(main.provider_blueprint)
 
     @classmethod
-    def provider_register(cls, provider):
-        cls.providers.add(provider.name, provider)
+    def register_provider(cls, provider):
+        cls.providers[provider.name] = provider
 
     def __init__(self, topic_uuid):
         self.model = BaseTopic.objects.get(_id=topic_uuid)
 
     def test(self):
-        pass
+        """
+            Will be implemented in the real one
+        """
+        raise "you need to implemented the test method in your topic controller"
 
     def run(self):
-        pass
+        """
+            Needs to be implemented in the real one
+        """
+        raise "you need to implemented the run method in your topic controller"
 
     def finish(self):
-        pass
+        """
+            Needs to be implemented in the real one
+        """
+        raise "you need to implemented the finish method in your topic controller"
 
