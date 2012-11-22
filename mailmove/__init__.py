@@ -30,8 +30,10 @@ class MailMoveFactory(object):
             self.flask.register_blueprint(b, url_prefix='/topic/{}'.format(k))
         self.main_blueprint = import_string('mailmove.views.mod')
         self.flask.register_blueprint(self.main_blueprint, url_prefix='/mailmove')
-        if k, b in self.config.get('ADD_BLUEPRINTS', (())):
-            self.flask.register_blueprint(b, url_prefix=k)
+        if self.config.get('ADD_BLUEPRINT', False):
+            for k, bname in self.config['ADD_BLUEPRINTS']:
+                b = import_string(bname)
+                self.flask.register_blueprint(b, url_prefix=k)
 
     def register_topic(self, name, blueprint, model):
         self.topic_blueprints[name] = blueprint
