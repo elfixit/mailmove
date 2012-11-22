@@ -4,6 +4,8 @@ from mailmove.topics.dummy.views import blueprint
 from mailmove.topics.dummy.model import DummyTopic
 
 class DummyController(BaseProviderController):
+    name = 'dummy'
     model = DummyProvider
+    topic_name = 'dummy'
     topic_blueprint = blueprint
-    topic_model =
+    topic_model = DummyTopic
