@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+mailmove
+~~~~~~~~
+
+"""
+
 from werkzeug import import_string, cached_property
 
 class LazyView(object):

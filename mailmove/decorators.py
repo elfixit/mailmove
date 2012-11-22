@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+mailmove
+~~~~~~~~
+
+"""
+
 from functools import wraps
 from flask import abort, request
 

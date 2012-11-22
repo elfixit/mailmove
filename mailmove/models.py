@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+mailmove
+~~~~~~~~
+
+"""
+
 from mailmove import db
 
 class Provider(db.Document):

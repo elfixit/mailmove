@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+mailmove
+~~~~~~~~
+
+"""
+
 from flask.views import MethodView
 from flask import abort, Blueprint
 

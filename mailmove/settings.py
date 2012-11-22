@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+mailmove
+~~~~~~~~
+
+"""
+
 # default flask config
 DEBUG = True
 SECRET_KEY = "3\x99nTD\x97\x82\x91l?\x16M?\x80\x99\xc9\xa4e\xac\xdd\xb8!\xea\x00\xa3\x81(\x9d\x8a;"
@@ -18,12 +25,13 @@ CELERY_MONGODB_BACKEND_SETTINGS = {
     "taskmeta_collection": "taskmeta"
 }
 
+# MailMove Factory Settings
 PROVIDERS = (
     'mailmove.providers.dummy',
     'mailmove.providers.imap',
     #'mailmove.providers.gmail'
 )
 
-ADD_BLUEPRINTS = (
-    ('/', 'mailmove.pages.views.mod')
-)
+ADD_BLUEPRINTS = {
+    None: 'mailmove.pages.views.mod',
+}
