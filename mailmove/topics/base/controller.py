@@ -1,4 +1,4 @@
-from mailmove.topics.base.model import BaseTopic
+from mailmove.models import Topic
 from mailmove.topics.base.views import register as register_views
 import importlib
 
@@ -7,20 +7,15 @@ class BaseController(object):
     providers = {}
 
     @classmethod
-    def register(cls, main):
-        main.register_topic(cls.name, cls)
-        settings_name = "{}_PROVIDERS".format(cls.name.upper())
-        for provider in main.config.get(settings_name):
-            provider_mod = importlib.import_module(provider)
-            provider_mod.register(cls)
-        register_views(main.provider_blueprint)
-
-    @classmethod
     def register_provider(cls, provider):
         cls.providers[provider.name] = provider
 
     def __init__(self, topic_uuid):
-        self.model = BaseTopic.objects.get(_id=topic_uuid)
+        self.model = Topic.objects.get(_id=topic_uuid)
+        self.provider_controllers = []
+        for provider in self.model.providers:
+            if issubclass(provider.__class__, Topic):
+                self.provider_controllers.append(provider.get_controller())
 
     def test(self):
         """

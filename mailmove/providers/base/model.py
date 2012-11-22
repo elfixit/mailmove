@@ -7,3 +7,5 @@ class BaseProvider(Provider):
     def set_controller(cls, controller):
         cls.__controller = controller
 
+    def get_controller(self):
+        return self.__controller(model=self)

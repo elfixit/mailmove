@@ -11,7 +11,7 @@ from werkzeug import import_string
 
 class MailMoveFactory(object):
     """
-
+        The Registry for all sync components
     """
 
     def __init__(self, flask, config=False):
@@ -48,3 +48,4 @@ class MailMoveFactory(object):
 
     def register_provider(self, topic, name, model):
         self.model_registry[topic][name] = model
+

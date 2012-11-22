@@ -7,7 +7,7 @@ from mailmove.topics.dummy.controller import DummyController
 class DummyController(BaseProviderController):
     name = 'dummy'
     model = DummyProvider
-    topic_name = 'dummy'
+    topic_name = DummyController.name
     topic_blueprint = blueprint
     topic_model = DummyTopic
     topic_controller = DummyController

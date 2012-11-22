@@ -8,7 +8,7 @@ class BaseProviderController(object):
     name = 'base'
     model = BaseProvider
     #topic_blueprint = blueprint
-    topic_name = 'base'
+    topic_name = BaseController.name
     topic_model = BaseTopic
     topic_controller = BaseController
 

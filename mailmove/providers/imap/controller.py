@@ -7,7 +7,7 @@ from mailmove.topics.mail.controller import MailController
 class ImapController(BaseProviderController):
     name = 'imap'
     model = ImapProvider
-    topic_name = 'mail'
+    topic_name = MailController.name
     topic_blueprint = blueprint
     topic_model = MailTopic
     topic_controller = MailController
