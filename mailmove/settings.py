@@ -35,3 +35,5 @@ PROVIDERS = (
 ADD_BLUEPRINTS = {
     None: 'mailmove.pages.views.mod',
 }
+
+MAILMOVE_JOBSTORE = 'jobstore'

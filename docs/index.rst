@@ -3,14 +3,39 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to MailMove's documentation!
-====================================
+.. warning::
 
-Contents:
+   This documentation is work in progress
+
+Introducing MailMove
+====================
 
 .. toctree::
    :maxdepth: 2
 
+   intro/general
+   intro/features
+   intro/installation
+
+Using MailMove
+==============
+
+.. toctree::
+   :maxdepth: 2
+
+   using/simple
+   using/embedded
+   using/as_user
+
+Develop MailMove
+================
+
+.. toctree::
+  :maxdepth: 2
+
+  develop/general
+  develop/providers
+  develop/topics
 
 
 Indices and tables
