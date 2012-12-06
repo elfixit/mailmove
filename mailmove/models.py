@@ -39,7 +39,7 @@ class Job(db.Document):
         super(Job, self).__init__(*args, **kwargs)
 
     def __get_storepath(self):
-        return os.path.abspath(os.path.join(mailmove.config['MAILMOVE_JOBSTORE'], self._id))
+        return os.path.abspath(os.path.join(mailmove.config['MAILMOVE_JOBSTORE'], self.id))
 
     def __get_credentialstore(self, name):
         file = os.path.join(self.__get_storepath(), name)
@@ -53,6 +53,8 @@ class Job(db.Document):
         return data
 
     def set_credentials(self, name, data):
+        if not name in self.credentials:
+            self.credentials.append(name)
         fp = self.__get_credentialstore(name)
         data = json.dump(data, fp)
         fp.close()

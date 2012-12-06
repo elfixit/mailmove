@@ -40,6 +40,6 @@ class ManageView(MethodView):
         abort(501)
 
 manage_view = job_required(ManageView().as_view('manage_view'))
-mod.add_url_rule('/<job_uuid>', view_func=manage_view)
+mod.add_url_rule('/<string:job_uuid>', view_func=manage_view)
 
 
