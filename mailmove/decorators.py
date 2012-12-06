@@ -33,12 +33,11 @@ def job_required(f):
                 if bcrypt.check_password_hash(job.password, job_pass):
                     check = True
             if job and check:
+                del kwargs['job_uuid']
                 kwargs['job'] = job
                 f(*args, **kwargs)
             elif check == False:
-                pass
-                # to call check
-                #check_pass(*args, **kwargs)
+                abort(403)
         else:
             abort(404)
 

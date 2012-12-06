@@ -6,7 +6,7 @@ mailmove
 """
 from __future__ import absolute_import
 from flask.views import MethodView
-from flask import abort, Blueprint
+from flask import request, abort, Blueprint
 
 mod = Blueprint('mailmove', __name__, template_folder="templates")
 
