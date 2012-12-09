@@ -14,6 +14,7 @@ class MailMoveFactory(object):
         The Registry for all sync components
     """
 
+
     def __init__(self, flask, config=False):
         self.flask = flask
         self.config = config
