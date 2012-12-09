@@ -2,7 +2,7 @@
 """
 mailmove
 ~~~~~~~~
-
+delete database entry and delete all files irreversible, means clean up all footprints...
 """
 
 from __future__ import absolute_import
