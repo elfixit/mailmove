@@ -14,6 +14,9 @@ mod = Blueprint('mailmove', __name__, template_folder="templates")
 from mailmove.decorators import no_robot, job_required
 
 class CreateView(MethodView):
+    """
+
+    """
     methods = ['GET', 'POST']
 
     def get(self):
