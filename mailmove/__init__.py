@@ -21,11 +21,23 @@ config.from_envvar('MAILMOVE_SETTINGS', silent=True)
 
 app = Flask(__name__)
 
+"""
+set up factory
+"""
 mailmove = MailMoveFactory(app, config)
 
+"""
+set up mongo db
+"""
 db = MongoEngine(app)
 
+"""
+set up encryption
+"""
 bcrypt = Bcrypt(app)
 
+"""
+set up celery taks handling
+"""
 celery = Celery('mailmove.celery', include=['mailmove.tasks'])
 celery.conf.update(**config)
