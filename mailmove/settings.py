@@ -29,7 +29,7 @@ CELERY_MONGODB_BACKEND_SETTINGS = {
 PROVIDERS = (
     'mailmove.providers.dummy',
     'mailmove.providers.imap',
-    #'mailmove.providers.gmail'
+    'mailmove.providers.gmail'
 )
 
 ADD_BLUEPRINTS = {

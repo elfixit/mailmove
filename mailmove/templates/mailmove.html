@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block extra_head %}
+{% block head_extra %}
 <script src="/static/js/jquery-ui.js" type="text/javascript"></script>
 <script src="/static/js/default.js" type="text/javascript"></script>
 <script src="/static/js/bootstrap.js" type="text/javascript"></script>
@@ -9,4 +9,12 @@
 <script src="/static/js/backbone.bootstrap-modal.js" type="text/javascript"></script>
 <script src="/static/js/list.js" type="text/javascript"></script>
 <script src="/static/js/backbone-forms.js" type="text/javascript"></script>
+<script src="/static/js/mailmove.js" type="text/javascript"></script>
+{% for topic in topics %}
+  <script src="{{ url_for(topic.topic+'.topic_view') }}" type="text/javascript"></script>
+  {% for provider in topic.providers %}
+  <script src="{{ url_for(topic.topic+'.'+provider+'_view') }}" type="text/javascript"></script>
+  {% endfor %}
+{% endfor %}
+
 {% endblock %}

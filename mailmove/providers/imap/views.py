@@ -5,4 +5,4 @@ class ImapView(MethodView):
     pass
 
 imap_view = ImapView.as_view('imap_view')
-blueprint.add_url_rule('/', view_func=imap_view)
+blueprint.add_url_rule('/imap', view_func=imap_view)
