@@ -2,12 +2,14 @@
 """
 mailmove
 ~~~~~~~~
-
 """
 from __future__ import absolute_import
 from werkzeug import import_string, cached_property
 
 class LazyView(object):
+    """
+    currently not used 
+    """
     def __init__(self, import_name):
         self.__module__, self.__name__ = import_name.rsplit('.', 1)
         self.import_name = import_name
@@ -22,6 +24,9 @@ class LazyView(object):
 from flask import Blueprint
 
 class LazyBlueprint(Blueprint):
+    """
+    currently not used 
+    """
     def __init__(self, name, import_name, static_folder=None,
                  static_url_path=None, template_folder=None,
                  url_prefix=None, subdomain=None, url_defaults=None):
