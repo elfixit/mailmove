@@ -5,8 +5,9 @@ mailmove
 
 """
 from __future__ import absolute_import
+from mailmove import mailmove
 from flask.views import MethodView
-from flask import request, abort, Blueprint
+from flask import request, session, abort, render_template, Blueprint
 
 mod = Blueprint('mailmove', __name__, template_folder="templates")
 
@@ -16,7 +17,14 @@ class CreateView(MethodView):
     methods = ['GET', 'POST']
 
     def get(self):
-        abort(501)
+        topics = []
+        for topic in mailmove.model_registry.keys():
+            struct = dict(topic=topic, providers=[])
+            for provider in mailmove.model_registry[topic].keys():
+                if not provider == 'model':
+                    struct['providers'].append(provider)
+            topics.append(struct)
+        return render_template("mailmove.html", topics=topics)
 
     def post(self):
         abort(501)
